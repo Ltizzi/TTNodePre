@@ -21,7 +21,7 @@ if (args[0].toLowerCase() == "help") {
   console.log(
     "El primer argumento tiene q ser un metodo HTTP válido (GET, PUT, POST, DELETE)\n"
   );
-  console.log("\nEl segundo tiene q ser la ruta/endpoint deseado");
+  console.log("\nEl segundo tiene q ser la ruta/endpoint deseada");
   console.log(
     "\nSi se utiliza 'POST' se deben proporcionar argumentos adicionales -titulo, precio y categoría-\n\n"
   );

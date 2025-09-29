@@ -88,13 +88,12 @@ npm run start DELETE products/7
 
 ```bash
 # Clonar el repositorio
-git clone <tu-repositorio>
+git clone https://github.com/Ltizzi/TTNodePre
 
 # Navegar al directorio
-cd <nombre-del-proyecto>
+cd TTNodePre
 
-# Instalar dependencias
-npm install
+
 
 # Ejecutar el programa
 npm run start --- <método http> <ruta/endpoint>

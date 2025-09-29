@@ -4,6 +4,8 @@ console.clear();
 console.log("\nPRE-ENTREGA para curso Backend-NodeJS de Talento Tech");
 console.log("\n\npor Leonardo Terlizzi\n\n");
 
+checkNodeVersion();
+
 const args = process.argv.slice(2);
 const hasArgs = args && args.length > 0;
 
@@ -87,4 +89,18 @@ function showNoArgsMsg() {
     "-------------------------------------------------------------\n\nEjecute 'npm run start -- help' para más información\n\n-------------------------------------------------------------\n"
   );
   process.exit(0);
+}
+
+function checkNodeVersion() {
+  console.log("Chequeando versión de node...");
+  const version = process.versions.node.split(".")[0];
+  if (version >= 18) {
+    console.log("\nVersión de node: v" + process.versions.node + "\n\n");
+    return;
+  } else {
+    console.log(
+      "\n\n\tERROR!! este script necesita Node v18 o superior para correr.\n\tActualice para continuar!.\n\n"
+    );
+    process.exit(0);
+  }
 }

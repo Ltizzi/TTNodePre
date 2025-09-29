@@ -22,6 +22,13 @@ if (args[0].toLowerCase() == "help") {
     "El primer argumento tiene q ser un metodo HTTP válido (GET, PUT, POST, DELETE)\n"
   );
   console.log("\nEl segundo tiene q ser la ruta/endpoint deseado");
+  console.log(
+    "\nSi se utiliza 'POST' se deben proporcionar argumentos adicionales -titulo, precio y categoría-\n\n"
+  );
+  console.log(
+    "Ejemplo: npm run start -- POST products CocaCola 2700.00 Gaseosa\n\n"
+  );
+  process.exit(0);
 }
 
 const httpMethod = args[0];
@@ -94,13 +101,23 @@ function showNoArgsMsg() {
 function checkNodeVersion() {
   console.log("Chequeando versión de node...");
   const version = process.versions.node.split(".")[0];
-  if (version >= 18) {
-    console.log("\nVersión de node: v" + process.versions.node + "\n\n");
-    return;
-  } else {
+  console.log(
+    "\nVersión de node: v" +
+      process.versions.node +
+      "\t" +
+      getEmoji(version) +
+      "\n"
+  );
+  if (version >= 18) return;
+  else {
     console.log(
-      "\n\n\tERROR!! este script necesita Node v18 o superior para correr.\n\tActualice para continuar!.\n\n"
+      "\n\tERROR!! este script necesita Node v18 o superior para correr.\n\tActualice para continuar!.\n\n"
     );
     process.exit(0);
   }
+}
+
+function getEmoji(v) {
+  const tick = "\u2714";
+  return v >= 18 ? `\x1b[32m${tick} OK\x1b[0m` : `\u274C \x1b[31mERROR\x1b[0m`;
 }
